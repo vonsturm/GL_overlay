@@ -1,5 +1,5 @@
 /* Author:       Katharina von Sturm
- * Usage:        ./overlay <isotope> <legendfile> <gerdafile> <gerdafile>
+ * Usage:        ./overlay <location> <isotope> <legendfile> <gerdafile> (<gerdafile2>)
  * Compilation:  g++ $(root-config --cflags) overlay.cxx -o overlay $(root-config --libs)
  */
 

@@ -1,4 +1,6 @@
-/* Author:       Katharina von Sturm
+/*
+ * Author:       Katharina von Sturm
+ * Date:         06.03.2018
  * Usage:        ./overlay <location> <isotope> <legendfile> <gerdafile> (<gerdafile2>)
  * Compilation:  g++ $(root-config --cflags) overlay.cxx -o overlay $(root-config --libs)
  */
@@ -111,7 +113,7 @@ int main( int argc, char * argv[] )
     l -> Draw();
 
     TFile * outfile = new TFile( Form("GL_%s_%s.root",location.c_str(),isotope.c_str()), "RECREATE" );
-    c -> Write();
+    c         -> Write();
     gerda     -> Write();
     gerda_AC  -> Write();
     legend    -> Write();

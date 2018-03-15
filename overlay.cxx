@@ -41,8 +41,8 @@ int main( int argc, char * argv[] )
 	// open gerda file(s) and get histograms
     TFile * f_gerda_1 = new TFile( fn_gerda_1.c_str(), "READ" );
     TFile * f_gerda_2;
-    double NumberOfPrimariesEdep_g1e = ( (TParameter<long> *) f_gerda_1 -> Get( "NumberOfPrimariesEdep" ) ) -> GetVal();
-    double NumberOfPrimariesCoin_g1c = ( (TParameter<long> *) f_gerda_1 -> Get( "NumberOfPrimariesCoin" ) ) -> GetVal();
+    double NumberOfPrimariesEdep_g1e = ( (TParameter<Long64_t> *) f_gerda_1 -> Get( "NumberOfPrimariesEdep" ) ) -> GetVal();
+    double NumberOfPrimariesCoin_g1c = ( (TParameter<Long64_t> *) f_gerda_1 -> Get( "NumberOfPrimariesCoin" ) ) -> GetVal();
 
     cout << "\tPrim edep: " << NumberOfPrimariesEdep_g1e << endl;
     cout << "\tPrim coin: " << NumberOfPrimariesCoin_g1c << endl;

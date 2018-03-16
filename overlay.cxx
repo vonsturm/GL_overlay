@@ -22,9 +22,9 @@ using namespace std;
 int main( int argc, char * argv[] )
 {
     string location   = argv[1];
-	string isotope    = argv[2];
-	string fn_legend  = argv[3];
-	string fn_gerda_1 = argv[4];
+    string isotope    = argv[2];
+    string fn_legend  = argv[3];
+    string fn_gerda_1 = argv[4];
 
     // control output
     cout << "*******************" << endl;
@@ -65,8 +65,8 @@ int main( int argc, char * argv[] )
         cout << "Gerda file2: " << fn_gerda_2 << endl;
 
         f_gerda_2 = new TFile( fn_gerda_2.c_str(), "READ" );
-        double NumberOfPrimariesEdep_g2e = ( (TParameter<long> *) f_gerda_2 -> Get( "NumberOfPrimariesEdep" ) ) -> GetVal();
-        double NumberOfPrimariesCoin_g2c = ( (TParameter<long> *) f_gerda_2 -> Get( "NumberOfPrimariesCoin" ) ) -> GetVal();
+        double NumberOfPrimariesEdep_g2e = ( (TParameter<Long64_t> *) f_gerda_2 -> Get( "NumberOfPrimariesEdep" ) ) -> GetVal();
+        double NumberOfPrimariesCoin_g2c = ( (TParameter<Long64_t> *) f_gerda_2 -> Get( "NumberOfPrimariesCoin" ) ) -> GetVal();
 
         cout << "\tPrim edep: " << NumberOfPrimariesEdep_g2e << endl;
         cout << "\tPrim coin: " << NumberOfPrimariesCoin_g2c << endl;
@@ -99,10 +99,10 @@ int main( int argc, char * argv[] )
 
     string cname = Form("%s_%s",location.c_str(),isotope.c_str());
     TCanvas * c = new TCanvas( cname.c_str(), cname.c_str(), 750, 500 );
-    gerda     -> Draw( "hist" );
-    gerda_AC  -> Draw( "histsame" );
-    legend    -> Draw( "histsame" );
+    legend    -> Draw( "hist" );
     legend_AC -> Draw( "histsame" );
+    gerda     -> Draw( "histsame" );
+    gerda_AC  -> Draw( "histsame" );
     gPad -> SetLogy();
 
     TLegend * l = new TLegend( 0.1,0.1,0.3,0.3 );
@@ -120,11 +120,11 @@ int main( int argc, char * argv[] )
     legend_AC -> Write();
     outfile   -> Close();
 
-    f_gerda_1 -> Close();
-    if(f_gerda_2) f_gerda_2 -> Close();
-    f_legend  -> Close();
-
     cout << "*******************" << endl;
+
+    f_legend  -> Close();
+    f_gerda_1 -> Close();
+    if( isotope == "A224_Z88" || isotope == "A222_Z86" ) f_gerda_2 -> Close();
 
 	return 0;
 }

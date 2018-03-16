@@ -1,2 +1,5 @@
 overlay
 overlay_2nbb
+
+*.root
+*.sh

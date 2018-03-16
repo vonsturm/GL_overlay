@@ -52,7 +52,7 @@ int main( int argc, char * argv[] )
     gerda_AC -> Add( (TH1D*) f_gerda_1 -> Get( "M1_enrCoax" ), 1./NumberOfPrimariesEdep_g1e );
 
     TH1D  * gerda = (TH1D*) f_gerda_1 -> Get( "M2_enrE1andE2" ) -> Clone( "gerda_pre_AC" ); gerda -> Reset();
-    gerda    -> Add( (TH1D*) f_gerda_1 -> Get( "M2_enrE1andE2" ), 1./NumberOfPrimariesCoin_g1c );
+    gerda -> Add( (TH1D*) f_gerda_1 -> Get( "M2_enrE1andE2" ), 1./NumberOfPrimariesCoin_g1c );
 
     // A224_Z88 : Bi212 + Tl208
     // A222_Z86 : Pb214 + Bi214

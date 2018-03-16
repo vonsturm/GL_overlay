@@ -112,6 +112,8 @@ int main( int argc, char * argv[] )
     l -> AddEntry( legend_AC, "LEGEND granularity", "l" );
     l -> Draw();
 
+    c -> Print( Form("GL_%s_%s.pdf",location.c_str(),isotope.c_str()) );
+
     TFile * outfile = new TFile( Form("GL_%s_%s.root",location.c_str(),isotope.c_str()), "RECREATE" );
     c         -> Write();
     gerda     -> Write();

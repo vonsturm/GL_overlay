@@ -3,3 +3,5 @@ overlay_2nbb
 
 *.root
 *.sh
+*.pdf
+*.tar.gz
